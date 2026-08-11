@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-cream-50: #fdfcfa;
+  --color-cream-100: #f8f5ef;
+  --color-cream-200: #f0ebe0;
+  --color-cream-300: #e3dac9;
+  --color-cream-400: #c9bda5;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-olive-50: #f4f5f0;
+  --color-olive-100: #e4e7db;
+  --color-olive-200: #c9cfb7;
+  --color-olive-300: #a3ad87;
+  --color-olive-400: #7d8a5f;
+  --color-olive-500: #5c6b3f;
+  --color-olive-600: #48542f;
+
+  --color-forest-50: #f0f5ec;
+  --color-forest-100: #d4e4c8;
+  --color-forest-200: #a8c990;
+  --color-forest-300: #6b9e4a;
+  --color-forest-400: #3d6b2e;
+  --color-forest-500: #2a4a1e;
+  --color-forest-600: #1b3312;
+
+  --color-bark-50: #f7f5f3;
+  --color-bark-100: #e8e3dd;
+  --color-bark-200: #d1c8bc;
+  --color-bark-300: #b3a594;
+  --color-bark-400: #8c7b68;
+  --color-bark-500: #6b5c4a;
+  --color-bark-600: #4a3f33;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream-50);
+  color: #3a3a3a;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.product-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.section-divider {
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-olive-300),
+    transparent
+  );
+  height: 1px;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 150ms;
+}
+.animate-delay-200 {
+  animation-delay: 300ms;
+}
+.animate-delay-300 {
+  animation-delay: 450ms;
 }
