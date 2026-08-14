@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
+import { ToastProvider } from "@/context/ToastContext";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -28,9 +31,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
+        <CartProvider>
+          <WishlistProvider>
+            <ToastProvider>
+              <Navbar />
+              <main className="flex-1 pt-16">{children}</main>
+              <Footer />
+            </ToastProvider>
+          </WishlistProvider>
+        </CartProvider>
       </body>
     </html>
   );

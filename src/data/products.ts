@@ -6,6 +6,7 @@ export interface Product {
   description: string;
   uses: string[];
   price: string;
+  priceValue: number;
   image: string;
   bgImage: string;
 }
@@ -25,6 +26,7 @@ export const products: Product[] = [
       "Garnish for culinary dishes",
     ],
     price: "GH₵ 25.00",
+    priceValue: 25,
     image:
       "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=400&fit=crop",
     bgImage:
@@ -44,6 +46,7 @@ export const products: Product[] = [
       "Essential oil extraction",
     ],
     price: "GH₵ 30.00",
+    priceValue: 30,
     image:
       "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=400&fit=crop",
     bgImage:
@@ -63,6 +66,7 @@ export const products: Product[] = [
       "Baking & dessert flavoring",
     ],
     price: "GH₵ 20.00",
+    priceValue: 20,
     image:
       "https://images.unsplash.com/photo-1590502593747-42a996133562?w=600&h=400&fit=crop",
     bgImage:
@@ -82,6 +86,7 @@ export const products: Product[] = [
       "Mojito & cocktail garnish",
     ],
     price: "GH₵ 22.00",
+    priceValue: 22,
     image:
       "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?w=600&h=400&fit=crop",
     bgImage:
@@ -101,6 +106,7 @@ export const products: Product[] = [
       "Baby-safe herbal blend",
     ],
     price: "GH₵ 35.00",
+    priceValue: 35,
     image:
       "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=600&h=400&fit=crop",
     bgImage:
@@ -120,6 +126,7 @@ export const products: Product[] = [
       "Stir-fry & curry base",
     ],
     price: "GH₵ 28.00",
+    priceValue: 28,
     image:
       "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600&h=400&fit=crop",
     bgImage:
@@ -139,6 +146,7 @@ export const products: Product[] = [
       "Baking & pastry spice",
     ],
     price: "GH₵ 32.00",
+    priceValue: 32,
     image:
       "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=600&h=400&fit=crop",
     bgImage:
@@ -158,6 +166,7 @@ export const products: Product[] = [
       "Natural food coloring",
     ],
     price: "GH₵ 30.00",
+    priceValue: 30,
     image:
       "https://images.unsplash.com/photo-1607438747763-a7cf896e0483?w=600&h=400&fit=crop",
     bgImage:

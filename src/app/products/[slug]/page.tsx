@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import ProductActions from "@/components/ProductActions";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -93,20 +94,7 @@ export default async function ProductDetailPage({
                 </ul>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-cream-200">
-                <Link
-                  href="/contact"
-                  className="flex-1 inline-flex items-center justify-center bg-forest-500 text-white px-6 py-3.5 text-[13px] font-medium tracking-wider uppercase hover:bg-forest-600 transition-colors"
-                >
-                  Inquire About This Product
-                </Link>
-                <Link
-                  href="/products"
-                  className="flex-1 inline-flex items-center justify-center border border-cream-300 text-bark-400 px-6 py-3.5 text-[13px] font-medium tracking-wider uppercase hover:border-forest-500 hover:text-forest-500 transition-colors"
-                >
-                  Browse All
-                </Link>
-              </div>
+              <ProductActions product={product} />
             </div>
           </div>
         </div>

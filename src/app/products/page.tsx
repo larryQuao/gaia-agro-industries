@@ -1,6 +1,6 @@
 import Image from "next/image";
-import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import ProductsGrid from "@/components/ProductsGrid";
 
 export const metadata = {
   title: "Products — Gaia Agro Industries",
@@ -9,8 +9,6 @@ export const metadata = {
 };
 
 export default function ProductsPage() {
-  const categories = [...new Set(products.map((p) => p.category))];
-
   return (
     <>
       {/* Page Hero */}
@@ -33,33 +31,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="bg-white border-b border-cream-200">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap justify-center gap-3">
-          <span className="px-5 py-1.5 text-[11px] font-medium tracking-wider uppercase bg-forest-500 text-white cursor-pointer">
-            All
-          </span>
-          {categories.map((cat) => (
-            <span
-              key={cat}
-              className="px-5 py-1.5 text-[11px] font-medium tracking-wider uppercase border border-cream-300 text-bark-400 hover:border-forest-500 hover:text-forest-500 transition-colors cursor-pointer"
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProductsGrid products={products} />
 
       {/* Wholesale CTA */}
       <section className="relative py-24 overflow-hidden">
