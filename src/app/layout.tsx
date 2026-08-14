@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import { ToastProvider } from "@/context/ToastContext";
+import { DrawerProvider } from "@/context/DrawerContext";
+import Drawers from "@/components/Drawers";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -34,9 +36,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <CartProvider>
           <WishlistProvider>
             <ToastProvider>
-              <Navbar />
-              <main className="flex-1 pt-16">{children}</main>
-              <Footer />
+              <DrawerProvider>
+                <Navbar />
+                <main className="flex-1 pt-16">{children}</main>
+                <Footer />
+                <Drawers />
+              </DrawerProvider>
             </ToastProvider>
           </WishlistProvider>
         </CartProvider>

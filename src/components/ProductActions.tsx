@@ -5,12 +5,14 @@ import type { Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useToast } from "@/context/ToastContext";
+import { useDrawer } from "@/context/DrawerContext";
 
 export default function ProductActions({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { showToast } = useToast();
+  const { openCart } = useDrawer();
   const wishlisted = isInWishlist(product.slug);
 
   return (
@@ -44,6 +46,7 @@ export default function ProductActions({ product }: { product: Product }) {
             addToCart(product, quantity);
             showToast(`${quantity}x ${product.name} added to cart`);
             setQuantity(1);
+            openCart();
           }}
           className="flex-1 inline-flex items-center justify-center gap-2 bg-forest-500 text-white px-6 py-3.5 text-[13px] font-medium tracking-wider uppercase hover:bg-forest-600 transition-colors"
         >

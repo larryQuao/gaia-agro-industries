@@ -6,11 +6,13 @@ import type { Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useToast } from "@/context/ToastContext";
+import { useDrawer } from "@/context/DrawerContext";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { showToast } = useToast();
+  const { openCart } = useDrawer();
   const wishlisted = isInWishlist(product.slug);
 
   return (
@@ -73,6 +75,7 @@ export default function ProductCard({ product }: { product: Product }) {
         onClick={() => {
           addToCart(product);
           showToast(`${product.name} added to cart`);
+          openCart();
         }}
         className="w-full mt-0 bg-forest-500 text-white text-[12px] font-medium tracking-wider uppercase py-3 hover:bg-forest-600 transition-colors flex items-center justify-center gap-2"
       >
